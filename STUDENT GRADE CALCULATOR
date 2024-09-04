@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Define the number of subjects
+        final int NUMBER_OF_SUBJECTS = 5; // You can change this to the number of subjects you have
+
+        // Array to store scores
+        double[] scores = new double[NUMBER_OF_SUBJECTS];
+        double total = 0.0;
+
+        // Input scores
+        System.out.println("Enter the scores for " + NUMBER_OF_SUBJECTS + " subjects:");
+
+        for (int i = 0; i < NUMBER_OF_SUBJECTS; i++) {
+            System.out.print("Score for subject " + (i + 1) + ": ");
+            scores[i] = scanner.nextDouble();
+            total += scores[i];
+        }
+
+        // Calculate average
+        double average = total / NUMBER_OF_SUBJECTS;
+
+        // Determine grade
+        char grade;
+        if (average >= 90) {
+            grade = 'A';
+        } else if (average >= 80) {
+            grade = 'B';
+        } else if (average >= 70) {
+            grade = 'C';
+        } else if (average >= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+
+        // Display results
+        System.out.printf("Average Score: %.2f\n", average);
+        System.out.println("Grade: " + grade);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
